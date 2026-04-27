@@ -1,69 +1,765 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Harshita J | Portfolio</title>
-<link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-</head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Harshita J | Marketing Communications</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Fraunces:ital,wght@0,300;0,600;1,300&display=swap" rel="stylesheet" />
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+:root {
+  --bg:      #07090f;
+  --bg2:     #0d1019;
+  --bg3:     #131721;
+  --border:  rgba(120,160,255,0.08);
+  --border2: rgba(120,160,255,0.18);
+  --text:    #e8eaf2;
+  --muted:   #7a7f96;
+  --soft:    #9da3bc;
+  --accent:  #7eb8f7;
+  --accent2: #a8d4ff;
+  --violet:  #9b8cff;
+  --teal:    #4ecdc4;
+  --green:   #56cfaa;
+  --tag-bg:  rgba(126,184,247,0.08);
+  --tag-col: #7eb8f7;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 2.5rem; height: 58px;
+  background: rgba(7,9,15,0.85);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-logo {
+  font-family: 'Fraunces', serif;
+  font-weight: 600; font-size: 1.1rem;
+  color: var(--text); text-decoration: none; letter-spacing: -0.01em;
+}
+.nav-logo em { font-style: italic; color: var(--accent); }
+
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a {
+  text-decoration: none; color: var(--muted);
+  font-size: 12.5px; letter-spacing: 0.05em; text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--text); }
+
+.btn-hire {
+  padding: 7px 18px; border: none; border-radius: 6px;
+  background: var(--accent); color: #07090f;
+  font-size: 13px; font-weight: 600;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  cursor: pointer; text-decoration: none;
+  transition: background 0.2s;
+}
+.btn-hire:hover { background: var(--accent2); }
+
+.hero {
+  min-height: 100vh;
+  display: flex; align-items: center;
+  padding: 80px 2.5rem 4rem;
+  max-width: 1120px; margin: 0 auto;
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 4rem; align-items: center; width: 100%;
+}
+
+.status-pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 5px 14px;
+  border: 1px solid rgba(86,207,170,0.28);
+  border-radius: 100px;
+  font-size: 11.5px; color: var(--green);
+  margin-bottom: 1.6rem;
+}
+.pulse {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--green);
+  animation: blink 2s infinite;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.35} }
+
+.hero h1 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(3rem, 5.5vw, 4.4rem);
+  font-weight: 600; line-height: 1.06;
+  letter-spacing: -0.03em; margin-bottom: 0.4rem;
+}
+.hero h1 em { font-style: italic; color: var(--accent); font-weight: 300; }
+
+.hero-role {
+  font-size: 1rem; color: var(--muted);
+  font-weight: 300; margin-bottom: 1.5rem; letter-spacing: 0.01em;
+}
+
+.hero-desc {
+  font-size: 14.5px; color: var(--soft);
+  line-height: 1.85; margin-bottom: 2.2rem; max-width: 480px;
+}
+.hero-desc strong { color: var(--accent); font-weight: 500; }
+
+.hero-cta { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 2.5rem; }
+
+.btn-primary {
+  padding: 11px 26px; border: none; border-radius: 8px;
+  background: var(--accent); color: #07090f;
+  font-size: 14px; font-weight: 600;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  cursor: pointer; text-decoration: none; transition: background 0.2s;
+}
+.btn-primary:hover { background: var(--accent2); }
+
+.btn-ghost {
+  padding: 10px 24px;
+  border: 1px solid var(--border2); border-radius: 8px;
+  background: transparent; color: var(--text);
+  font-size: 14px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  cursor: pointer; text-decoration: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+.btn-ghost:hover { border-color: var(--accent); background: rgba(126,184,247,0.05); }
+
+.hero-links { display: flex; gap: 18px; flex-wrap: wrap; }
+.hero-link {
+  display: flex; align-items: center; gap: 6px;
+  text-decoration: none; color: var(--muted);
+  font-size: 12.5px; transition: color 0.2s;
+}
+.hero-link:hover { color: var(--accent); }
+
+.profile-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 16px; overflow: hidden;
+}
+
+.card-topbar {
+  display: flex; align-items: center; gap: 10px;
+  padding: 1rem 1.4rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg3);
+}
+.card-dots { display: flex; gap: 6px; }
+.card-dot { width: 10px; height: 10px; border-radius: 50%; }
+.card-dot.r { background: #ff5f57; }
+.card-dot.y { background: #febc2e; }
+.card-dot.g { background: #28c840; }
+.card-file { font-size: 11.5px; color: var(--muted); margin: 0 auto; font-family: monospace; }
+
+.card-body { padding: 1.4rem; }
+.card-avatar-row {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 1.4rem; padding-bottom: 1.2rem;
+  border-bottom: 1px solid var(--border);
+}
+.avatar {
+  width: 48px; height: 48px; border-radius: 10px;
+  background: linear-gradient(135deg, #4a7fff 0%, #9b8cff 100%);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Fraunces', serif;
+  font-size: 1.1rem; font-weight: 600; color: #fff; flex-shrink: 0;
+}
+.av-name { font-weight: 500; font-size: 14.5px; }
+.av-sub  { font-size: 12px; color: var(--muted); }
+
+.json-rows { list-style: none; }
+.json-row {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 6px 0; border-bottom: 1px solid var(--border);
+  font-size: 12.5px; gap: 1rem;
+}
+.json-row:last-child { border-bottom: none; }
+.jk { color: var(--muted); flex-shrink: 0; font-size: 12px; }
+.jv { color: var(--accent); text-align: right; }
+.jv a { color: inherit; text-decoration: none; }
+.jv.ok { color: var(--green); }
+
+hr.div { border: none; border-top: 1px solid var(--border); }
+
+section {
+  max-width: 1120px; margin: 0 auto;
+  padding: 5rem 2.5rem;
+}
+
+.sec-label {
+  font-size: 10.5px; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--accent);
+  margin-bottom: 0.4rem; font-weight: 600;
+}
+.sec-title {
+  font-family: 'Fraunces', serif;
+  font-size: 2.1rem; font-weight: 600;
+  letter-spacing: -0.025em;
+  margin-bottom: 3rem; color: var(--text); line-height: 1.15;
+}
+
+.stats-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
+  gap: 12px; margin-bottom: 3.5rem;
+}
+.stat-box {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 12px; padding: 1.2rem 1.4rem;
+}
+.stat-num {
+  font-family: 'Fraunces', serif;
+  font-size: 2rem; font-weight: 600;
+  color: var(--accent); line-height: 1; margin-bottom: 4px;
+}
+.stat-lbl { font-size: 11.5px; color: var(--muted); }
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 4rem; align-items: start;
+}
+.about-text p { color: var(--soft); margin-bottom: 1rem; line-height: 1.9; }
+.about-text p strong { color: var(--text); font-weight: 500; }
+.about-text blockquote {
+  border-left: 2px solid var(--accent);
+  padding: 0.4rem 1.2rem; margin: 1.5rem 0;
+  font-style: italic; color: var(--muted);
+  font-size: 14px; line-height: 1.75;
+  font-family: 'Fraunces', serif; font-weight: 300;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+.skill-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 12px; padding: 1.4rem;
+  transition: border-color 0.2s, background 0.2s;
+}
+.skill-card:hover { border-color: var(--border2); background: var(--bg3); }
+.skill-icon { font-size: 1.3rem; margin-bottom: 0.7rem; }
+.skill-cat { font-size: 13px; font-weight: 500; margin-bottom: 0.7rem; color: var(--text); }
+.skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.tag {
+  background: var(--tag-bg); color: var(--tag-col);
+  border: 1px solid rgba(126,184,247,0.14);
+  border-radius: 5px; font-size: 11.5px; padding: 3px 9px;
+}
+.tag.v { background: rgba(155,140,255,0.08); color: var(--violet); border-color: rgba(155,140,255,0.14); }
+.tag.t { background: rgba(78,205,196,0.08); color: var(--teal); border-color: rgba(78,205,196,0.14); }
+.tag.g { background: rgba(86,207,170,0.08); color: var(--green); border-color: rgba(86,207,170,0.14); }
+.tag.n { background: rgba(255,255,255,0.03); color: var(--muted); border-color: var(--border); }
+
+.exp-list { display: flex; flex-direction: column; }
+.exp-entry {
+  display: grid;
+  grid-template-columns: 210px 1fr;
+  gap: 2.5rem;
+  padding: 2.5rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.exp-entry:first-child { padding-top: 0; }
+.exp-entry:last-child  { border-bottom: none; padding-bottom: 0; }
+
+.exp-meta { padding-top: 3px; }
+.exp-current {
+  display: inline-flex; align-items: center; gap: 6px;
+  color: var(--green); font-size: 11px; margin-bottom: 6px;
+}
+.exp-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
+.exp-period { font-size: 12.5px; color: var(--muted); line-height: 1.5; }
+.exp-loc { font-size: 11.5px; color: var(--muted); margin-top: 4px; opacity: 0.7; }
+
+.exp-role {
+  font-family: 'Fraunces', serif;
+  font-size: 1.15rem; font-weight: 600;
+  margin-bottom: 2px; letter-spacing: -0.01em;
+}
+.exp-company { color: var(--accent); font-size: 12.5px; margin-bottom: 1.2rem; }
+
+.exp-groups { display: flex; flex-direction: column; gap: 1.4rem; }
+.exp-group-title {
+  font-size: 11.5px; font-weight: 600;
+  letter-spacing: 0.05em; text-transform: uppercase;
+  color: var(--violet); margin-bottom: 0.6rem;
+}
+.exp-bullets { list-style: none; }
+.exp-bullets li {
+  color: var(--soft); font-size: 13.5px;
+  line-height: 1.75; padding: 3px 0 3px 1rem;
+  position: relative;
+}
+.exp-bullets li::before {
+  content: '›';
+  position: absolute; left: 0;
+  color: var(--accent); font-size: 13px; top: 3px;
+}
+.exp-bullets li strong { color: var(--text); font-weight: 500; }
+
+.edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.edu-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 12px; padding: 1.6rem;
+  transition: border-color 0.2s;
+}
+.edu-card:hover { border-color: var(--border2); }
+.edu-year {
+  font-size: 10.5px; color: var(--accent);
+  letter-spacing: 0.08em; text-transform: uppercase;
+  font-weight: 600; margin-bottom: 0.5rem;
+}
+.edu-degree {
+  font-family: 'Fraunces', serif;
+  font-size: 1.05rem; font-weight: 600; margin-bottom: 4px;
+}
+.edu-inst { font-size: 12.5px; color: var(--muted); }
+
+.contact-box {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 18px; padding: 3rem;
+  text-align: center; max-width: 720px; margin: 0 auto;
+}
+.contact-box h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 1.9rem; font-weight: 600;
+  margin-bottom: 0.7rem; letter-spacing: -0.02em;
+}
+.contact-sub { color: var(--muted); font-size: 14px; margin-bottom: 2.5rem; }
+
+.contact-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px; margin-bottom: 2rem;
+}
+.clink {
+  display: flex; align-items: center; gap: 12px;
+  padding: 1rem 1.2rem;
+  background: var(--bg3); border: 1px solid var(--border);
+  border-radius: 10px; text-decoration: none; color: var(--text);
+  transition: border-color 0.2s, background 0.2s; text-align: left;
+}
+.clink:hover { border-color: var(--accent); background: rgba(126,184,247,0.04); }
+.clink-icon { font-size: 1.2rem; flex-shrink: 0; }
+.clink-lbl { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+.clink-val { font-size: 12.5px; color: var(--text); }
+
+footer {
+  text-align: center;
+  padding: 2rem 2.5rem;
+  border-top: 1px solid var(--border);
+  color: var(--muted); font-size: 12px;
+}
+footer a { color: var(--muted); text-decoration: none; }
+footer a:hover { color: var(--accent); }
+
+@keyframes up {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero-left > * { animation: up 0.6s ease both; }
+.hero-left > *:nth-child(1) { animation-delay: 0.04s; }
+.hero-left > *:nth-child(2) { animation-delay: 0.10s; }
+.hero-left > *:nth-child(3) { animation-delay: 0.16s; }
+.hero-left > *:nth-child(4) { animation-delay: 0.22s; }
+.hero-left > *:nth-child(5) { animation-delay: 0.28s; }
+.hero-left > *:nth-child(6) { animation-delay: 0.34s; }
+.profile-card { animation: up 0.7s 0.18s ease both; }
+
+@media (max-width: 800px) {
+  nav { padding: 0 1.5rem; }
+  .nav-links { display: none; }
+  .hero { padding: 78px 1.5rem 3rem; }
+  .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+  section { padding: 3.5rem 1.5rem; }
+  .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .exp-entry { grid-template-columns: 1fr; gap: 0.6rem; }
+  .edu-grid { grid-template-columns: 1fr; }
+  .stats-strip { grid-template-columns: repeat(2, 1fr); }
+  .contact-box { padding: 2rem 1.5rem; }
+}
+</style>
+</head>
 <body>
 
-<header class="nav">
-  <h2>Harshita J</h2>
-  <ul>
+<nav>
+  <a class="nav-logo" href="#">Harshita <em>J</em></a>
+  <ul class="nav-links">
     <li><a href="#about">About</a></li>
-    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#education">Education</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-</header>
+  <a class="btn-hire" href="mailto:harshitajakadeeshan@gmail.com">Hire Me ↗</a>
+</nav>
 
-<section class="hero">
-  <h1>Marketing & Customer Experience Professional</h1>
-  <p>CRM • Email Marketing • SEO • Analytics • Community Management</p>
-</section>
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="status-pill">
+        <span class="pulse"></span>
+        Open to opportunities
+      </div>
+      <h1>Harshita <em>J</em></h1>
+      <p class="hero-role">Senior Executive · Marketing Communications · Bengaluru, India</p>
+      <p class="hero-desc">
+        <strong>2.9 years</strong> of expertise in B2B, B2C, and Healthcare sectors. Specialising in community management, CRM automation, email marketing, SEO, and market research — managing engagement for <strong>100K+ users</strong> with a customer-first, data-driven approach.
+      </p>
+      <div class="hero-cta">
+        <a class="btn-primary" href="#experience">View Experience ↓</a>
+        <a class="btn-ghost" href="#contact">Get in Touch</a>
+      </div>
+      <div class="hero-links">
+        <a class="hero-link" href="https://www.linkedin.com/in/harshita-jakadeeshan" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+        <a class="hero-link" href="mailto:harshitajakadeeshan@gmail.com">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          Email
+        </a>
+        <a class="hero-link" href="tel:+919035497607">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.58 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.51 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.18 6.18l.81-.81a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          +91 9035497607
+        </a>
+      </div>
+    </div>
+
+    <div class="profile-card">
+      <div class="card-topbar">
+        <div class="card-dots">
+          <span class="card-dot r"></span>
+          <span class="card-dot y"></span>
+          <span class="card-dot g"></span>
+        </div>
+        <span class="card-file">profile.json</span>
+      </div>
+      <div class="card-body">
+        <div class="card-avatar-row">
+          <div class="avatar">HJ</div>
+          <div>
+            <p class="av-name">Harshita J</p>
+            <p class="av-sub">Sr. Executive · Markelytics Solutions</p>
+          </div>
+        </div>
+        <ul class="json-rows">
+          <li class="json-row"><span class="jk">role</span><span class="jv">Senior Executive</span></li>
+          <li class="json-row"><span class="jk">company</span><span class="jv">Markelytics Solutions</span></li>
+          <li class="json-row"><span class="jk">status</span><span class="jv ok">Available</span></li>
+          <li class="json-row"><span class="jk">experience</span><span class="jv">2 yrs 9 months</span></li>
+          <li class="json-row"><span class="jk">sectors</span><span class="jv">B2B · B2C · Healthcare</span></li>
+          <li class="json-row"><span class="jk">base</span><span class="jv">Bengaluru, India</span></li>
+          <li class="json-row"><span class="jk">email</span><span class="jv"><a href="mailto:harshitajakadeeshan@gmail.com">harshitajakadeeshan@gmail.com</a></span></li>
+          <li class="json-row"><span class="jk">phone</span><span class="jv"><a href="tel:+919035497607">+91 9035497607</a></span></li>
+          <li class="json-row"><span class="jk">linkedin</span><span class="jv"><a href="https://www.linkedin.com/in/harshita-jakadeeshan" target="_blank" rel="noopener">harshita-jakadeeshan</a></span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="div" />
 
 <section id="about">
-  <h2>About Me</h2>
-  <p>
-    I specialize in marketing communications and customer experience with 2.9 years of experience managing 100K+ users. 
-    My work focuses on CRM, email marketing, community building, and data-driven decision making.
-  </p>
-</section>
+  <p class="sec-label">About</p>
+  <h2 class="sec-title">Who I Am</h2>
 
-<section id="projects">
-  <h2>Projects</h2>
+  <div class="stats-strip">
+    <div class="stat-box"><p class="stat-num">100K+</p><p class="stat-lbl">Panelists managed</p></div>
+    <div class="stat-box"><p class="stat-num">400+</p><p class="stat-lbl">Monthly queries resolved</p></div>
+    <div class="stat-box"><p class="stat-num">&lt;2 hr</p><p class="stat-lbl">Avg turnaround time</p></div>
+    <div class="stat-box"><p class="stat-num">200+</p><p class="stat-lbl">Pages SEO-optimised</p></div>
+    <div class="stat-box"><p class="stat-num">20+</p><p class="stat-lbl">Industries researched</p></div>
+    <div class="stat-box"><p class="stat-num">15–20%</p><p class="stat-lbl">Organic traffic lift</p></div>
+  </div>
 
-  <div class="grid">
-
-    <div class="card">
-      <h3>Community Management</h3>
-      <p>Built and scaled a shopper insights community with engagement and incentive systems.</p>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>I'm a <strong>Marketing Communications and Customer Experience professional</strong> based in Bengaluru, with close to 3 years of hands-on experience across B2B, B2C, and Healthcare sectors.</p>
+      <p>At <strong>Markelytics Solutions</strong>, I wear many hats — from building and scaling a shopper insights community from scratch, to running CRM campaigns in Mirabel and Brevo, managing 100K+ panelists, optimising SEO across hundreds of pages, and producing in-depth industry research and case studies.</p>
+      <blockquote>"Where customer experience meets data-driven communication — that's where I thrive."</blockquote>
+      <p>I'm also engaged in <strong>AI and automation</strong>, contributing to LLM model training through structured data input and maintaining metadata for intelligent knowledge management systems.</p>
+      <p>I speak <strong>English, Kannada, Tamil</strong>, and <strong>Hindi</strong>, and bring a collaborative, analytical mindset to every challenge.</p>
     </div>
-
-    <div class="card">
-      <h3>Email Marketing</h3>
-      <p>Executed campaigns with strong open rates and CRM workflows.</p>
+    <div>
+      <div class="skill-card" style="margin-bottom:1rem;">
+        <p class="skill-cat" style="margin-bottom:0.7rem;">🌍 Languages</p>
+        <div class="skill-tags">
+          <span class="tag n">English</span><span class="tag n">Kannada</span>
+          <span class="tag n">Tamil</span><span class="tag n">Hindi</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <p class="skill-cat" style="margin-bottom:0.5rem;">📍 Location</p>
+        <p style="font-size:13px;color:var(--soft);">Bengaluru, Karnataka, India</p>
+      </div>
     </div>
-
-    <div class="card">
-      <h3>SEO Optimization</h3>
-      <p>Optimized 200+ pages improving organic visibility and traffic.</p>
-    </div>
-
-    <div class="card">
-      <h3>Market Research</h3>
-      <p>Created case studies across 20+ industries and industry reports.</p>
-    </div>
-
   </div>
 </section>
 
-<section id="contact">
-  <h2>Contact</h2>
-  <p>Email: harshitajakadeeshan@gmail.com</p>
-  <p>LinkedIn: linkedin.com/in/harshita-j-665772257</p>
+<hr class="div" />
+
+<section id="skills">
+  <p class="sec-label">Skills</p>
+  <h2 class="sec-title">What I Bring</h2>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-icon">🏘️</div>
+      <p class="skill-cat">Community Management</p>
+      <div class="skill-tags">
+        <span class="tag">Community Building</span><span class="tag">User Onboarding</span>
+        <span class="tag">Engagement Campaigns</span><span class="tag">Incentive Programs</span>
+        <span class="tag">Retention</span><span class="tag">Participation Tracking</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">📣</div>
+      <p class="skill-cat">Email Marketing & CRM</p>
+      <div class="skill-tags">
+        <span class="tag">Email Marketing</span><span class="tag">CRM Marketing</span>
+        <span class="tag v">Mirabel</span><span class="tag v">Mailshake</span><span class="tag v">Brevo</span>
+        <span class="tag">Lead Generation</span><span class="tag">Segmentation</span><span class="tag">Nurturing</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🤝</div>
+      <p class="skill-cat">Customer Experience & Support</p>
+      <div class="skill-tags">
+        <span class="tag">Customer Support</span><span class="tag">Ticketing Systems</span>
+        <span class="tag">Multi-channel Comms</span><span class="tag">Escalation Handling</span>
+        <span class="tag">High-volume CX</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">📊</div>
+      <p class="skill-cat">Analytics & Reporting</p>
+      <div class="skill-tags">
+        <span class="tag t">Google Analytics</span><span class="tag t">MIS Reports</span>
+        <span class="tag t">Campaign Dashboards</span><span class="tag t">Bouncify</span>
+        <span class="tag">Data Cleaning</span><span class="tag">Engagement Metrics</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🔍</div>
+      <p class="skill-cat">SEO & Digital Optimisation</p>
+      <div class="skill-tags">
+        <span class="tag">On-page SEO</span><span class="tag">Meta Tags</span>
+        <span class="tag">Keyword Optimisation</span><span class="tag">Content Structure</span>
+        <span class="tag">Organic Traffic</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">📑</div>
+      <p class="skill-cat">Market Research & Reports</p>
+      <div class="skill-tags">
+        <span class="tag">Secondary Research</span><span class="tag">Industry Reports</span>
+        <span class="tag">Case Studies</span><span class="tag">Competitor Analysis</span>
+        <span class="tag">Market Trends</span><span class="tag">Data Validation</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🗃️</div>
+      <p class="skill-cat">Database & Comms Management</p>
+      <div class="skill-tags">
+        <span class="tag">Database Building</span><span class="tag">Segmentation Lists</span>
+        <span class="tag">Personalised Outreach</span><span class="tag">Data Structuring</span>
+        <span class="tag">Communication Records</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🤖</div>
+      <p class="skill-cat">AI & Automation</p>
+      <div class="skill-tags">
+        <span class="tag g">AI Tools</span><span class="tag g">LLM Training Data</span>
+        <span class="tag g">Metadata Management</span><span class="tag g">Knowledge Systems</span>
+        <span class="tag g">Workflow Automation</span>
+      </div>
+    </div>
+  </div>
 </section>
+
+<hr class="div" />
+
+<section id="experience">
+  <p class="sec-label">Experience</p>
+  <h2 class="sec-title">Where I've Worked</h2>
+  <div class="exp-list">
+    <div class="exp-entry">
+      <div class="exp-meta">
+        <p class="exp-current"><span class="exp-dot"></span> Current</p>
+        <p class="exp-period">Jul 2023 – Present</p>
+        <p class="exp-loc">Bengaluru, India</p>
+      </div>
+      <div>
+        <p class="exp-role">Senior Executive – Marketing Communications</p>
+        <p class="exp-company">Markelytics Solutions</p>
+        <div class="exp-groups">
+
+          <div class="exp-group">
+            <p class="exp-group-title">Community Management & Engagement</p>
+            <ul class="exp-bullets">
+              <li>Built and scaled a <strong>shopper insights community from scratch</strong>, driving onboarding, engagement, and retention.</li>
+              <li>Planned and executed activity calendars, engagement campaigns, and <strong>recruitment email journeys</strong>.</li>
+              <li>Designed and managed incentive programs including <strong>points systems, reward allocation</strong>, and voucher distribution.</li>
+              <li>Handled end-to-end reward operations (validation, processing, payment disbursement).</li>
+              <li>Managed community queries, participation tracking, and engagement analytics.</li>
+            </ul>
+          </div>
+
+          <div class="exp-group">
+            <p class="exp-group-title">Customer Experience & Support</p>
+            <ul class="exp-bullets">
+              <li>Managed engagement for <strong>100K+ healthcare and consumer panelists</strong>, resolving 400+ monthly queries across email, ticketing systems, and social media.</li>
+              <li>Maintained <strong>&lt;2-hour TAT</strong>, ensuring efficient resolution and high customer satisfaction.</li>
+              <li>Handled user queries, escalations, and <strong>multi-channel communication workflows</strong>.</li>
+            </ul>
+          </div>
+
+          <div class="exp-group">
+            <p class="exp-group-title">Marketing & CRM Operations</p>
+            <ul class="exp-bullets">
+              <li>Executed email marketing campaigns and optimised <strong>CRM workflows (Mirabel)</strong>.</li>
+              <li>Built and managed email journeys using <strong>Mailshake and Brevo</strong>.</li>
+              <li>Supported lead generation, segmentation, and prospect nurturing initiatives.</li>
+              <li>Contributed to campaign execution, content creation, and communication strategies.</li>
+            </ul>
+          </div>
+
+          <div class="exp-group">
+            <p class="exp-group-title">Database Management & Email Communications</p>
+            <ul class="exp-bullets">
+              <li>Built and maintained structured databases for <strong>email marketing and community communications</strong>.</li>
+              <li>Managed user data, segmentation lists, and communication records for targeted outreach.</li>
+              <li>Enabled personalised campaigns through <strong>accurate data structuring</strong> and efficient execution.</li>
+            </ul>
+          </div>
+
+          <div class="exp-group">
+            <p class="exp-group-title">SEO & Digital Optimisation</p>
+            <ul class="exp-bullets">
+              <li>Implemented on-page SEO across <strong>200+ web pages</strong> (meta tags, keywords, content structure).</li>
+              <li>Contributed to an estimated <strong>15–20% improvement</strong> in organic traffic and content visibility.</li>
+            </ul>
+          </div>
+
+          <div class="exp-group">
+            <p class="exp-group-title">Analytics & Reporting</p>
+            <ul class="exp-bullets">
+              <li>Developed <strong>MIS reports, dashboards</strong>, and campaign performance snapshots.</li>
+              <li>Tracked engagement metrics, email performance, and user behaviour.</li>
+              <li>Used <strong>Google Analytics</strong> and internal tools for data-driven insights.</li>
+              <li>Performed data cleaning and validation using <strong>Bouncify</strong>.</li>
+            </ul>
+          </div>
+
+          <div class="exp-group">
+            <p class="exp-group-title">Market Research & Industry Reports</p>
+            <ul class="exp-bullets">
+              <li>Developed industry reports using secondary research covering <strong>market trends, competitors, and insights</strong>.</li>
+              <li>Conducted data collection, validation, and analysis to generate actionable findings.</li>
+              <li>Created case studies across <strong>20+ industries</strong> to support marketing and business use cases.</li>
+            </ul>
+          </div>
+
+          <div class="exp-group">
+            <p class="exp-group-title">AI & Automation</p>
+            <ul class="exp-bullets">
+              <li>Contributed to <strong>LLM model training</strong> through structured data input, validation, and refinement.</li>
+              <li>Created and maintained metadata sheets for <strong>Case Study Intelligence (CSI)</strong> and Project Archive Intelligence (PAI).</li>
+              <li>Improved data structuring, retrieval efficiency, and <strong>knowledge management systems</strong>.</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="div" />
+
+<section id="education">
+  <p class="sec-label">Education</p>
+  <h2 class="sec-title">Academic Background</h2>
+  <div class="edu-grid">
+    <div class="edu-card">
+      <p class="edu-year">2025</p>
+      <p class="edu-degree">MBA / PGDM</p>
+      <p class="edu-inst">Jain University, Bangalore</p>
+    </div>
+    <div class="edu-card">
+      <p class="edu-year">2022</p>
+      <p class="edu-degree">B.Com</p>
+      <p class="edu-inst">Sri Aurobindo Degree College</p>
+    </div>
+  </div>
+</section>
+
+<hr class="div" />
+
+<section id="contact">
+  <p class="sec-label">Contact</p>
+  <h2 class="sec-title">Let's Connect</h2>
+  <div class="contact-box">
+    <h3>Open to new roles &amp; collaborations</h3>
+    <p class="contact-sub">Marketing communications, CRM, community management, or market research — reach out and let's talk.</p>
+    <div class="contact-links">
+      <a class="clink" href="mailto:harshitajakadeeshan@gmail.com">
+        <span class="clink-icon">✉️</span>
+        <div>
+          <p class="clink-lbl">Email</p>
+          <p class="clink-val">harshitajakadeeshan@gmail.com</p>
+        </div>
+      </a>
+      <a class="clink" href="tel:+919035497607">
+        <span class="clink-icon">📱</span>
+        <div>
+          <p class="clink-lbl">Phone</p>
+          <p class="clink-val">+91 9035497607</p>
+        </div>
+      </a>
+      <a class="clink" href="https://www.linkedin.com/in/harshita-jakadeeshan" target="_blank" rel="noopener">
+        <span class="clink-icon">💼</span>
+        <div>
+          <p class="clink-lbl">LinkedIn</p>
+          <p class="clink-val">harshita-jakadeeshan</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Harshita J · Bengaluru, India &nbsp;·&nbsp;
+     <a href="https://www.linkedin.com/in/harshita-jakadeeshan" target="_blank" rel="noopener">LinkedIn</a> &nbsp;·&nbsp;
+     <a href="mailto:harshitajakadeeshan@gmail.com">Email</a>
+  </p>
+</footer>
 
 </body>
 </html>
